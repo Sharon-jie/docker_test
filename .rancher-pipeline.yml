@@ -1,0 +1,14 @@
+stages:
+- name: package
+  steps:
+  - runScriptConfig:
+      image: maven
+      shellScript: mvn clean package
+- name: compile
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: example
+      registry: 127.0.0.1:34162
+timeout: 60
