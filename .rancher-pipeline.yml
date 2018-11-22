@@ -1,0 +1,9 @@
+stages:
+- name: compile
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: docker_CI
+      registry: 127.0.0.1:34162
+timeout: 60
